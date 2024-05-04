@@ -4,6 +4,7 @@ using ECommerce;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240501235039_AddedPromotion-X")]
+    partial class AddedPromotionX
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,18 +242,17 @@ namespace ECommerce.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PromotionIdPromotion")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("ReductionAmount")
-                        .HasColumnType("decimal(18, 2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.HasIndex("PromotionIdPromotion");
 
@@ -272,23 +274,18 @@ namespace ECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("MontantReduction")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<double>("MontantReduction")
+                        .HasColumnType("float");
 
                     b.Property<string>("Nom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdPromotion");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Promotions");
                 });
@@ -377,26 +374,9 @@ namespace ECommerce.Migrations
 
             modelBuilder.Entity("ECommerce.Entities.ProductInPromotion", b =>
                 {
-                    b.HasOne("ECommerce.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ECommerce.Entities.Promotion", "Promotion")
+                    b.HasOne("ECommerce.Entities.Promotion", null)
                         .WithMany("Products")
                         .HasForeignKey("PromotionIdPromotion");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Promotion");
-                });
-
-            modelBuilder.Entity("ECommerce.Entities.Promotion", b =>
-                {
-                    b.HasOne("ECommerce.Entities.Product", null)
-                        .WithMany("PromotionList")
-                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("ECommerce.Entities.WishlistItem", b =>
@@ -425,8 +405,6 @@ namespace ECommerce.Migrations
                     b.Navigation("CartLines");
 
                     b.Navigation("OrderLines");
-
-                    b.Navigation("PromotionList");
                 });
 
             modelBuilder.Entity("ECommerce.Entities.Promotion", b =>

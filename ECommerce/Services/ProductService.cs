@@ -1,14 +1,14 @@
 ﻿using ECommerce.Entities;
 using ECommerce.IServices;
 using ECommerce.Models;
-using ECommerce.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ECommerce.Classes
+namespace ECommerce.Services
 {
     public class ProductService : IProductService
     {
@@ -158,4 +158,4 @@ namespace ECommerce.Classes
             return new OkObjectResult(products);
         }
     }
-}   
+}

@@ -11,6 +11,6 @@
         public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
         public virtual ICollection<CartLine> CartLines { get; set; } = new List<CartLine>();
         public virtual ICollection<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
+        public virtual ICollection<Promotion> PromotionList { get; set; } = new List<Promotion>();
     }
-
 }

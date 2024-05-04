@@ -4,6 +4,7 @@ using ECommerce;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240502011425_UpdateShemaPromotion")]
+    partial class UpdateShemaPromotion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,7 +242,11 @@ namespace ECommerce.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ProductId")
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId1")
                         .HasColumnType("int");
 
                     b.Property<string>("PromotionIdPromotion")
@@ -250,7 +257,7 @@ namespace ECommerce.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.HasIndex("PromotionIdPromotion");
 
@@ -272,8 +279,8 @@ namespace ECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("MontantReduction")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<double>("MontantReduction")
+                        .HasColumnType("float");
 
                     b.Property<string>("Nom")
                         .IsRequired()
@@ -379,7 +386,7 @@ namespace ECommerce.Migrations
                 {
                     b.HasOne("ECommerce.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ProductId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "++Udus90lak4xVfIgHiDVxV1HapD85/XLT7z8FpY/74CmCCsBMEk8yTnIgAFqBhpjwC0YqckxhLmrgLmr9DDmg==",
+  "dgSpecHash": "HBmfoLMlfcT9qEgamS2M5Dwfq5DQrkvsm31cAH2AI1CvhISvQESBGLsxfHvQe5J661Z6gAqFwrdFO2UTqa16YQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shaka\\OneDrive\\Bureau\\ECommerce\\ECommerce\\ECommerce.csproj",
+  "projectFilePath": "C:\\Users\\shaka\\OneDrive\\Bureau\\GreenMarketOriental\\ECommerce\\ECommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shaka\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\shaka\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

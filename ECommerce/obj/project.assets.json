@@ -3842,11 +3842,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shaka\\OneDrive\\Bureau\\ECommerce\\ECommerce\\ECommerce.csproj",
+      "projectUniqueName": "C:\\Users\\shaka\\OneDrive\\Bureau\\GreenMarketOriental\\ECommerce\\ECommerce.csproj",
       "projectName": "ECommerce",
-      "projectPath": "C:\\Users\\shaka\\OneDrive\\Bureau\\ECommerce\\ECommerce\\ECommerce.csproj",
+      "projectPath": "C:\\Users\\shaka\\OneDrive\\Bureau\\GreenMarketOriental\\ECommerce\\ECommerce.csproj",
       "packagesPath": "C:\\Users\\shaka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shaka\\OneDrive\\Bureau\\ECommerce\\ECommerce\\obj\\",
+      "outputPath": "C:\\Users\\shaka\\OneDrive\\Bureau\\GreenMarketOriental\\ECommerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\shaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
